@@ -8,33 +8,56 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var movies: [Movie] = []
+    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(1...20, id: \.self) {item in
+                    
+                ForEach(movies, id: \.self) {item in
                     HStack {
-                        ///Image
+                       
+                    
+                        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/original/\(item.backdropPath)")!) { image in
                         
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100)
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+        
+                        } placeholder: {
+                            
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100)
+                            
+                        }
+
                         
                         Spacer()
                             .frame(width: 25)
                         
-                        Text("\(item)")
-                        
-                        //Label
                         
                         VStack(alignment: .leading) {
-                            Text("Avenger: End Game")
+                            
+                            Text("\(item.voteAverage.formatted())")
+                            
+                            Text("\(item.title)")
                                 .font(.headline)
-                            Text("Action")
+
+                                .refreshable {
+                                fetchPopularMovieAPI()
+                                    
                         }
                     }
                 }
             }
+          
+            }
+
             .listStyle(.plain)
             
             .navigationTitle("Popular Movie")
@@ -67,19 +90,26 @@ struct ContentView: View {
                 if error != nil {
                     print(error?.localizedDescription)
                     return
+        
+                }
+                                
+            guard let data = data else { return }
+            print(data)
+                print(String(data: data, encoding: .utf8))
+      
+                do {
                     
+                    let movieData = try JSONDecoder().decode(MovieAPIResponse.self, from: data)
                     
+                    print(movieData.totalPages)
+        
+                    self.movies = movieData.results
+                    
+                } catch {
+                    print(error.localizedDescription)
                 }
                 
-            // Decode the json data into swift object
-                
-                print(data)
-                print(String(data: data!, encoding: .utf8))
-                
-                guard let data = data else { return }
-                // if data is nill, stop the execution
-                
-            
+
                 
             }
             .resume()

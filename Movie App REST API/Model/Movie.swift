@@ -7,11 +7,10 @@
 
 import Foundation
 
-struct Movie: Decodable {
-    let backdropPath: String
-    let title: String
-    let voteAverage: String
-    
+struct Movie: Decodable, Hashable {
+    var backdropPath: String
+    var title: String
+    var voteAverage: Double
     
     private enum CodingKeys: String, CodingKey {
         
