@@ -14,6 +14,8 @@
 		67299C0A2BEB1BF70055D990 /* Movie_App_REST_APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67299C092BEB1BF70055D990 /* Movie_App_REST_APITests.swift */; };
 		67299C142BEB1BF70055D990 /* Movie_App_REST_APIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67299C132BEB1BF70055D990 /* Movie_App_REST_APIUITests.swift */; };
 		67299C162BEB1BF70055D990 /* Movie_App_REST_APIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67299C152BEB1BF70055D990 /* Movie_App_REST_APIUITestsLaunchTests.swift */; };
+		67299C242BEB21860055D990 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67299C232BEB21860055D990 /* MovieResponse.swift */; };
+		67299C262BEB22500055D990 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67299C252BEB22500055D990 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		67299C0F2BEB1BF70055D990 /* Movie App REST APIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movie App REST APIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67299C132BEB1BF70055D990 /* Movie_App_REST_APIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_App_REST_APIUITests.swift; sourceTree = "<group>"; };
 		67299C152BEB1BF70055D990 /* Movie_App_REST_APIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_App_REST_APIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		67299C232BEB21860055D990 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		67299C252BEB22500055D990 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		67299BF72BEB1BF60055D990 /* Movie App REST API */ = {
 			isa = PBXGroup;
 			children = (
+				67299C222BEB21730055D990 /* Model */,
 				67299BF82BEB1BF60055D990 /* Movie_App_REST_APIApp.swift */,
 				67299BFA2BEB1BF60055D990 /* ContentView.swift */,
 				67299BFC2BEB1BF70055D990 /* Assets.xcassets */,
@@ -125,6 +130,15 @@
 				67299C152BEB1BF70055D990 /* Movie_App_REST_APIUITestsLaunchTests.swift */,
 			);
 			path = "Movie App REST APIUITests";
+			sourceTree = "<group>";
+		};
+		67299C222BEB21730055D990 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67299C232BEB21860055D990 /* MovieResponse.swift */,
+				67299C252BEB22500055D990 /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67299C242BEB21860055D990 /* MovieResponse.swift in Sources */,
 				67299BFB2BEB1BF60055D990 /* ContentView.swift in Sources */,
+				67299C262BEB22500055D990 /* Movie.swift in Sources */,
 				67299BF92BEB1BF60055D990 /* Movie_App_REST_APIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
